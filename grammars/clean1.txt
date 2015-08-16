@@ -1,0 +1,11 @@
+S : a | AB | B | aB | C | bCdCeCa | I | K
+A : aCaaC | B | AD
+B : BA | ADB
+C : Ac | cA | c | & | X
+D : Bd
+E : & | H
+F : &
+G : GA | AGD | F
+H : h
+I : i | j
+K : K | &
