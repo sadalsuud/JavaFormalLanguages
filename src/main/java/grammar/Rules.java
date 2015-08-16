@@ -3,16 +3,36 @@ package grammar;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * This class stores a list of Rules
+ */
 public class Rules extends ArrayList<Rule> {
 
+    /**
+     * Default constructor
+     */
     public Rules() {
         super();
     }
 
+    /**
+     * Default constructor with parameter
+     *
+     * @param c
+     *          list of all rules to add
+     */
     public Rules(Collection<Rule> c) {
         super(c);
     }
 
+    /**
+     * add a rule to the list
+     *
+     * @param r
+     *          the rule to add
+     * @return
+     *          true if the rule was not already present and it was inserted, false otherwise
+     */
     @Override
     public boolean add(Rule r) {
         return !contains(r) && super.add(r);

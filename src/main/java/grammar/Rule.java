@@ -3,16 +3,40 @@ package grammar;
 import java.util.ArrayList;
 import java.util.Collection;
 
+/**
+ * This class stores a list of Character
+ * which represent a rule
+ */
 public class Rule extends ArrayList<Character> {
 
+    /**
+     * Default constructor
+     */
     public Rule() {
         super();
     }
 
+    /**
+     * Default constructor with parameter
+     *
+     * @param c
+     *          list of all characters to add
+     */
     public Rule(Collection<Character> c) {
         super(c);
     }
 
+    /**
+     * Check if a rule contains a subrule
+     * Examples :
+     *      ABCD contains BC
+     *      ABCD does not contains AC
+     *
+     * @param subRule
+     *          the rule to search
+     * @return
+     *          true if the subrule is contained in rule, false otherwise
+     */
     public boolean containSubRule(Rule subRule) {
         int position = 0;
         for (Character c : this) {
@@ -28,6 +52,14 @@ public class Rule extends ArrayList<Character> {
         return false;
     }
 
+    /**
+     * Get the index of a subrule in a rule
+     *
+     * @param subRule
+     *          the rule to search
+     * @return
+     *          the position of the first occurence, -1 otherwise
+     */
     public int indexOfSubRule(Rule subRule) {
         int position = 0;
         for (int i = 0; i < size(); ++i) {
@@ -42,6 +74,15 @@ public class Rule extends ArrayList<Character> {
         return -1;
     }
 
+    /**
+     * Replace a subrule in a rule
+     * Example : replace AA by BB in BDAA -> BDBB
+     *
+     * @param subRule
+     *          the pattern to replace
+     * @param replacement
+     *          the replacement
+     */
     public void replace(Rule subRule, Rule replacement) {
         int index = indexOfSubRule(subRule);
         this.removeRange(index, index + subRule.size());
